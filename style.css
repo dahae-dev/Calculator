@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+
+/* ***** background ***** */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #FECFCC;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+/* ***** phone exterior ***** */
+#phone {
+  margin: 8% auto;
+  width: 275px;
+  background-color: rgb(249,250,252);
+  border: 3px solid rgb(247,208,203); /* ***** gradient 추가 ***** */
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 4px 2px 2px rgb(227,228,230);
+}
+
+#sensor {
+  width: 8px;
+  height: 8px;
+  background-color: rgb(49,49,49);
+  border-radius: 35px;
+  margin: 10px auto;
+}
+
+#speaker {
+  width: 45px;
+  height: 6px;
+  background-color: rgb(49,49,49);
+  border-radius: 4px;
+  margin: 0 auto;
+}
+
+#camera {
+  width: 12px;
+  height: 12px;
+  background-color: rgb(49,49,49);
+  border-radius: 35px;
+  float: left;
+  position: relative;
+  left: 32%;
+  top: -3.5px;
+}
+
+/* ***** display top ***** */
+#container {
+  margin: 30px 6px 10px 6px;
+  padding: 2px;
+  background-color: rgb(49,49,49);
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  color: #fff;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+#status {
+  margin-left: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.full {
+  width: 5px;
+  height: 5px;
+  background-color: #fff;
+  border-radius: 35px;
+  display: inline-block;
+  margin-right: 2px;
+}
+
+.empty {
+  width: 5px;
+  height: 5px;
+  border: 1px solid #fff;
+  border-radius: 35px;
+  display: inline-block;
+}
+
+#telecom {
+  margin: 0 4px 0 2px;
+}
+
+#time {
+  position: relative;
+  left: 36px;
+}
+
+.battery {
+  position: relative;
+  left: 90px;
+}
+
+.icon {
+  margin-left: 3px;
+}
+
+/* ***** calculator ***** */
+#calculator {
+  border-spacing: 0;
+}
+
+td {
+  width: 25%;
+}
+
+.display {
+  width: 100%;
+  height: auto;
+  border: none;
+  background-color: rgb(49,49,49);
+  color: #fff;
+  text-align: right;
+  font-size: 50px;
+  margin-top: 30px;
+  padding: 8px;
+}
+
+.btn {
+  width: 100%;
+  height: 62px;
+  border-style: solid solid none none;
+  border-width: thin;
+  border-color: rgba(49,49,49,0.6);
+  margin: 0px;
+  padding: 6px;
+  font-size: 26px;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:active {
+  background-color: rgb(196, 196, 196);
+}
+
+.top {
+  background-color: rgb(229, 229, 229);
+  font-size: 20px;
+}
+
+.key {
+  background-color: rgb(252, 252, 252);
+}
+
+.spanKey {
+  text-align: left;
+  padding-left: 26px;
+}
+
+.operator, .equal {
+  background-color: rgb(255, 140, 45);
+  color: #fff;
+}
+
+.operator:active {
+  background-color: rgb(214, 117, 38);
+}
+
+.operator:focus {
+  border-top: 2px solid rgb(49,49,49);
+  border-left: 2px solid rgb(49,49,49);
+  border-bottom: 2px solid rgb(49,49,49);
+}
+
+.isPressed {
+  border-top: 2px solid rgb(49,49,49);
+  border-left: 2px solid rgb(49,49,49);
+  border-bottom: 2px solid rgb(49,49,49);
+}
+
+/* ***** home button ***** */
+#homeBtn {
+  border: 2px solid #f7d0cb; /* ***** gradient 추가 ***** */
+  width: 45px;
+  height: 45px;
+  background-color: rgb(249,250,252);
+  border-radius: 35px;
+  margin: 10px auto;
+  display: block;
+}
+
+#homeBtn:active {
+  background-color: rgba(227,228,230, 0.7);
+}
