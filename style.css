@@ -130,6 +130,14 @@ td {
   padding: 8px;
 }
 
+a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .btn {
   width: 100%;
   height: 62px;
@@ -163,7 +171,7 @@ td {
 }
 
 .spanKey {
-  text-align: left;
+  justify-content: flex-start;
   padding-left: 26px;
 }
 

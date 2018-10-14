@@ -5,7 +5,7 @@ const clear = document.querySelector('.clear');
 
 // ----- operation when any button clicked -----
 calculator.addEventListener('click',function(e){
-  if(e.target.matches('button')){
+  if(e.target.matches('a')){
     const btn = e.target;
     const displayedVal = display.value;
     const result = getResult(btn, displayedVal, calculator.dataset)
