@@ -10,7 +10,7 @@
 body {
   width: 100vw;
   height: 100vh;
-  background-color: #FECFCC;
+  background-color: #C7DBF4;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
 }
@@ -20,10 +20,10 @@ body {
   margin: 8% auto;
   width: 275px;
   background-color: rgb(249,250,252);
-  border: 3px solid rgb(247,208,203); /* ***** gradient 추가 ***** */
+  border: 3px solid rgb(247,208,203);
   border-radius: 30px;
   overflow: hidden;
-  box-shadow: 4px 2px 2px rgb(227,228,230);
+  box-shadow: 4px 3px 3px rgb(227,228,230);
 }
 
 #sensor {
@@ -141,14 +141,6 @@ td {
   font-size: 26px;
 }
 
-.btn:focus {
-  outline: none;
-}
-
-.btn:active {
-  background-color: rgb(196, 196, 196);
-}
-
 .top {
   background-color: rgb(229, 229, 229);
   font-size: 20px;
@@ -156,6 +148,18 @@ td {
 
 .key {
   background-color: rgb(252, 252, 252);
+}
+
+.btn:active {
+  background-color: rgb(196, 196, 196);
+}
+
+.btnActive {
+  background-color: rgb(196, 196, 196);
+}
+
+.btn:focus {
+  outline: none;
 }
 
 .spanKey {
@@ -168,7 +172,11 @@ td {
   color: #fff;
 }
 
-.operator:active {
+.operator:active, .equal:active {
+  background-color: rgb(214, 117, 38);
+}
+
+.operatorActive {
   background-color: rgb(214, 117, 38);
 }
 
@@ -178,7 +186,7 @@ td {
   border-bottom: 2px solid rgb(49,49,49);
 }
 
-.isPressed {
+.operatorFocus {
   border-top: 2px solid rgb(49,49,49);
   border-left: 2px solid rgb(49,49,49);
   border-bottom: 2px solid rgb(49,49,49);

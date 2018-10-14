@@ -7,12 +7,39 @@ const clear = document.querySelector('.clear');
 calculator.addEventListener('click',function(e){
   if(e.target.matches('button')){
     const btn = e.target;
-    console.log(btn);
     const displayedVal = display.value;
     const result = getResult(btn, displayedVal, calculator.dataset)
     display.value = result;
     updateStatus(btn, calculator, displayedVal, result);
+    checkPressed(btn);
   }
+})
+
+// ----- operation when keyboard pressed -----
+window.addEventListener('keyup',function(){
+  let btn = '';
+  switch(event.key){
+    case '1': case '2': case '3': case '4': case '5': case '6': case '7': case '8': case '9': case '0':
+      btn = document.getElementsByClassName(event.key)[0];
+      break;
+    case '.':
+      btn = document.querySelector('.decimal');
+      break;
+    case '+': case '-': case '*': case '/':
+      btn = document.getElementsByClassName(event.key)[0];
+      break;
+    case 'Enter': case '=':
+      btn = document.querySelector('.equal');
+      break;
+    case 'Escape':
+      btn = document.querySelector('.clear');
+      break;
+  }
+  const displayedVal = display.value;
+  const result = getResult(btn, displayedVal, calculator.dataset)
+  display.value = result;
+  updateStatus(btn, calculator, displayedVal, result);
+  checkPressed(btn);
 })
 
 // ----- get button type -----
@@ -49,8 +76,7 @@ const getResult = (btn, displayedVal, status) => {
     return displayedVal;
   }
   if(btnType === 'operator'){
-    console.log(firstValue, operator, secondValue);
-    // ----- enable consecutive calculations -----
+    console.log(firstValue,operator,secondValue);
     return firstValue && operator && previousBtn !== 'operator' && previousBtn !== 'equal'
     ? calculate(firstValue, operator, secondValue)
     : displayedVal;
@@ -62,6 +88,7 @@ const getResult = (btn, displayedVal, status) => {
         firstValue = displayedVal;
         secondValue = status.replacedVal;
       }
+      console.log(firstValue, operator, secondValue);
       return calculate(firstValue, operator, secondValue);
     } else {
       return displayedVal;
@@ -85,7 +112,6 @@ const updateStatus = (btn, calculator, displayedVal, calcValue) => {
   const previousBtn = calculator.dataset.previousBtn;
   let firstValue = calculator.dataset.firstValue;
   const operator = calculator.dataset.operator;
-  const opBtn = document.getElementsByClassName(operator);
 
   if(btnType === 'number'){
     calculator.dataset.previousBtn = btnType;
@@ -109,20 +135,14 @@ const updateStatus = (btn, calculator, displayedVal, calcValue) => {
       calculator.dataset.replacedVal = '';
       calculator.dataset.operator = '';
       calculator.dataset.previousBtn = '';
-      Array.from(opBtn).forEach(btn => btn.classList.remove('isPressed'));
     } else {
       clear.textContent = 'AC';
       calculator.dataset.secondValue = '';
-      Array.from(opBtn).forEach(btn => btn.classList.add('isPressed'));
-      if(previousBtn === 'equal'){
-        Array.from(opBtn).forEach(btn => btn.classList.remove('isPressed'));
-      }
     }
     calculator.dataset.previousBtn = btnType;
   }
   if(btnType !== 'clear'){
     clear.textContent = 'C';
-    Array.from(opBtn).forEach(btn => btn.classList.remove('isPressed'));
   }
   if(btnType === 'equal'){
     let secondValue = displayedVal;
@@ -138,4 +158,32 @@ const updateStatus = (btn, calculator, displayedVal, calcValue) => {
   }
 }
 
-// ----- change font size -----
+// ----- add & remove css to check if the right button is pressed -----
+const checkPressed = (btn) => {
+  const btnType = getBtnType(btn);
+  const previousBtn = calculator.dataset.previousBtn;
+  const operator = calculator.dataset.operator;
+  const opBtn = document.getElementsByClassName(operator);
+  const opBtnFocused = document.querySelector('.operatorFocus');
+
+  if(btnType === 'operator' || btnType === 'equal'){
+    if(opBtnFocused){
+      opBtnFocused.classList.remove('operatorFocus');
+    }
+    btn.classList.add('operatorActive');
+    setTimeout(function(){
+      btn.classList.remove('operatorActive');
+    }, 100);
+    if(btnType === 'operator'){
+      opBtn[0].classList.add('operatorFocus');
+    }
+  } else {
+    btn.classList.add('btnActive');
+    setTimeout(function(){
+      btn.classList.remove('btnActive');
+    }, 100);
+    if(operator){
+      opBtn[0].classList.remove('operatorFocus');
+    }
+  }
+}
