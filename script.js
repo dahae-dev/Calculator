@@ -165,6 +165,7 @@ const checkPressed = (btn) => {
   const operator = calculator.dataset.operator;
   const opBtn = document.getElementsByClassName(operator);
   const opBtnFocused = document.querySelector('.operatorFocus');
+  let count = 1;
 
   if(btnType === 'operator' || btnType === 'equal'){
     if(opBtnFocused){
@@ -183,7 +184,12 @@ const checkPressed = (btn) => {
       btn.classList.remove('btnActive');
     }, 100);
     if(operator){
-      opBtn[0].classList.remove('operatorFocus');
+      if(btnType === 'clear' && count === 1){
+        opBtn[0].classList.add('operatorFocus');
+      } else {
+        count = 0;
+        opBtn[0].classList.remove('operatorFocus');
+      }
     }
   }
 }
