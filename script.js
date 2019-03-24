@@ -99,11 +99,12 @@ const getResult = (btn, displayedVal, status) => {
 // ----- calculation -----
 const calculate = (val1, op, val2) => {
   let firstVal = parseFloat(val1);
-  let secondVal = parseFloat(val2);
-  if(op === 'plus') return firstVal + secondVal;
-  if(op === 'minus') return firstVal - secondVal;
-  if(op === 'multiply') return firstVal * secondVal;
-  if(op === 'divide') return firstVal / secondVal;
+	let secondVal = parseFloat(val2);
+	const E = Number('1e' + 1);
+  if(op === 'plus') return ((firstVal + secondVal) * E) / E;
+  if(op === 'minus') return ((firstVal - secondVal) * E) / E;
+  if(op === 'multiply') return ((firstVal * secondVal) * E) / E;
+  if(op === 'divide') return ((firstVal / secondVal) * E) / E;
 }
 
 // ----- update status -----
