@@ -1,13 +1,12 @@
 # Calculator
 
-iPhone Calculator that can be operated by both keyboard and mouse.
+iPhone themed calculator that can be operated by both keyboard and mouse.  
+Still working on calculation & display of large numbers and thousands seperators.  
+Devised Vanilla Javascript to achieve comprehensive operation logic.
 
-Still working on calculation & display of large numbers and thousands seperators.
 
+- javascript 
 
+- html 
 
-#javascript 
-
-#html 
-
-#css
+- css
